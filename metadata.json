@@ -1,5 +1,6 @@
+
 {
-  "name": "StudyZen – Intelligent Student Burnout Early Warning & Recovery System",
-  "description": "An intelligent student wellness platform that predicts burnout risk through mood, metrics, and behavioral analysis, offering dynamic recovery plans and AI-driven emotional support.",
+  "name": "StudyZen – Intelligent Student Wellness & Recovery System",
+  "description": "An offline student wellness platform that tracks focus, provides recovery plans, and includes a secure, locked sanctuary diary for mental health maintenance.",
   "requestFramePermissions": []
 }

@@ -41,7 +41,6 @@ const FloatingWidget: React.FC<Props> = ({ level, energy, onOpenChat, onTriggerB
 
   const colorClass = level === RiskLevel.HIGH ? 'bg-red-400' : level === RiskLevel.MODERATE ? 'bg-yellow-400' : 'bg-emerald-400';
   
-  // Get mascot from local storage
   const savedUser = localStorage.getItem('studyzen_user');
   const user = savedUser ? JSON.parse(savedUser) : { mascot: 'bear' };
   const mascotEmoji = user.mascot === 'bear' ? '🐻' : user.mascot === 'sprout' ? '🌱' : '☁️';
@@ -56,7 +55,7 @@ const FloatingWidget: React.FC<Props> = ({ level, energy, onOpenChat, onTriggerB
     >
       <div className={`w-20 h-20 rounded-[30px] flex items-center justify-center border-[6px] border-white text-white font-black text-xl shadow-xl ${colorClass} pulse relative`}>
         {mascotEmoji}
-        <div className="absolute -bottom-2 -right-2 bg-white text-zen-brown text-[10px] px-2 py-0.5 rounded-full border-2 border-amber-50 shadow-sm">
+        <div className="absolute -bottom-2 -right-2 bg-white text-zen-brown text-[10px] px-2 py-0.5 rounded-full border-2 border-amber-50 shadow-sm font-black">
           {energy}%
         </div>
       </div>
@@ -64,21 +63,21 @@ const FloatingWidget: React.FC<Props> = ({ level, energy, onOpenChat, onTriggerB
       <div className={`mt-4 bg-white rounded-[24px] p-3 flex flex-col gap-2 border-2 border-amber-50 shadow-xl transition-all origin-top ${isMenuOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}>
         <button 
           onClick={(e) => { e.stopPropagation(); onTriggerBreak(); setIsMenuOpen(false); }}
-          className="text-[10px] font-black text-zen-brown hover:bg-emerald-50 p-2 rounded-xl transition-colors uppercase tracking-widest"
+          className="text-[10px] font-black text-zen-brown hover:bg-emerald-50 p-3 rounded-xl transition-colors uppercase tracking-widest whitespace-nowrap"
         >
-          Break
+          Quick Break ⚡
         </button>
         <button 
-          onClick={(e) => { e.stopPropagation(); onOpenChat(); setIsMenuOpen(false); }}
-          className="text-[10px] font-black text-zen-brown hover:bg-amber-50 p-2 rounded-xl transition-colors uppercase tracking-widest"
+          onClick={(e) => { e.stopPropagation(); setIsMenuOpen(false); }}
+          className="text-[10px] font-black text-zen-brown/40 p-3 rounded-xl transition-colors uppercase tracking-widest whitespace-nowrap"
         >
-          Support
+          Close
         </button>
       </div>
       
       {!isMenuOpen && (
-        <div className="absolute top-0 left-full ml-4 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-2xl whitespace-nowrap text-[10px] font-bold text-zen-brown pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity border border-amber-50">
-          Double tap me! ✨
+        <div className="absolute top-0 left-full ml-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl whitespace-nowrap text-[10px] font-black text-zen-brown pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity border border-amber-50 shadow-sm uppercase tracking-widest">
+          Double tap! ✨
         </div>
       )}
     </div>
